@@ -1,11 +1,86 @@
-[gd_scene format=3 uid="uid://cwlsx73hq7bv5"]
+[gd_scene load_steps=17 format=3 uid="uid://cwlsx73hq7bv5"]
+
+[ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
+[ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
+[ext_resource type="PackedScene" uid="uid://ch6gbwxrjavok" path="res://Sprites/apple.tscn" id="2_kd8cv"]
+[ext_resource type="PackedScene" uid="uid://cclomew5xjo6u" path="res://Sprites/cherry.tscn" id="3_fhiiq"]
+[ext_resource type="PackedScene" uid="uid://4jy52n3xxtf6" path="res://Sprites/dekopan.tscn" id="4_uxjwr"]
+[ext_resource type="PackedScene" uid="uid://cqreymv06nfc5" path="res://Sprites/grape.tscn" id="5_v6s58"]
+[ext_resource type="PackedScene" uid="uid://coo8r7jp124mu" path="res://Sprites/melon.tscn" id="6_5gsrv"]
+[ext_resource type="PackedScene" uid="uid://c7ejj3bifiksj" path="res://Sprites/peach.tscn" id="7_dxk1r"]
+[ext_resource type="PackedScene" uid="uid://b8i58q2hodwcf" path="res://Sprites/pear.tscn" id="8_l5n2q"]
+[ext_resource type="PackedScene" uid="uid://csp37jb7j522b" path="res://Sprites/persimmon.tscn" id="9_mg2xy"]
+[ext_resource type="PackedScene" uid="uid://ce5pagyjge5oc" path="res://Sprites/pineapple.tscn" id="10_i4fho"]
+[ext_resource type="PackedScene" uid="uid://bmi282rs4ccpx" path="res://Sprites/watermelon.tscn" id="12_uxjwr"]
+[ext_resource type="PackedScene" uid="uid://cf8jfk8s2d8k" path="res://Sprites/strawberry.tscn" id="13_v6s58"]
+[ext_resource type="Texture2D" uid="uid://bw6tfb5n05ki4" path="res://Art/nextFruit.png" id="14_dxk1r"]
+[ext_resource type="Texture2D" uid="uid://jsio4bft86te" path="res://Art/score.png" id="15_l5n2q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mg2xy"]
+load_path = "res://.godot/imported/Screenshot 2026-02-07 at 14.12.50.png-9f8115e405bbc5fa89d3da4e7fda73ce.ctex"
 
 [node name="GameView" type="Node2D"]
 
 [node name="Background Elements" type="Node2D" parent="."]
 
 [node name="Background Color" type="Polygon2D" parent="Background Elements"]
-position = Vector2(-267.00003, -178.00002)
-scale = Vector2(1.5051992, 1.5528331)
-color = Color(0.84705883, 0.62352943, 0.33333334, 1)
+position = Vector2(-395.4142, -256.83612)
+scale = Vector2(2.7071059, 2.836141)
+color = Color(0.79607844, 0.6117647, 0.37254903, 1)
 polygon = PackedVector2Array(2, 1, 3, 654, 1154, 652, 1156, 7)
+
+[node name="Score" type="Sprite2D" parent="Background Elements"]
+position = Vector2(391, 252)
+scale = Vector2(0.6311983, 0.6311983)
+texture = ExtResource("15_l5n2q")
+
+[node name="NextFruit" type="Sprite2D" parent="Background Elements"]
+position = Vector2(1545.0001, 254.00002)
+scale = Vector2(0.65016234, 0.65016234)
+texture = ExtResource("14_dxk1r")
+
+[node name="FruitEvolution" type="Sprite2D" parent="Background Elements"]
+position = Vector2(1538, 558)
+scale = Vector2(0.6440678, 0.64406776)
+texture = ExtResource("1_5gsrv")
+
+[node name="Screenshot20260207At14_12_50" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.634, 0.634)
+texture = SubResource("CompressedTexture2D_mg2xy")
+
+[node name="Sprite2D2" parent="." instance=ExtResource("2_kd8cv")]
+position = Vector2(1142, 1409)
+
+[node name="Sprite2D3" parent="." instance=ExtResource("3_fhiiq")]
+position = Vector2(665, 1415)
+
+[node name="Sprite2D4" parent="." instance=ExtResource("4_uxjwr")]
+position = Vector2(1011, 1405)
+
+[node name="Sprite2D5" parent="." instance=ExtResource("5_v6s58")]
+position = Vector2(756, 1407)
+
+[node name="Sprite2D6" parent="." instance=ExtResource("6_5gsrv")]
+position = Vector2(2115, 1323)
+
+[node name="Sprite2D7" parent="." instance=ExtResource("7_dxk1r")]
+position = Vector2(1553, 1379.0001)
+
+[node name="Sprite2D8" parent="." instance=ExtResource("8_l5n2q")]
+position = Vector2(1346, 1398)
+
+[node name="Sprite2D9" parent="." instance=ExtResource("9_mg2xy")]
+position = Vector2(884.99994, 1387)
+
+[node name="Sprite2D10" parent="." instance=ExtResource("10_i4fho")]
+position = Vector2(1819, 1345)
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_nfojt")]
+position = Vector2(545, 1390)
+
+[node name="Sprite2D11" parent="." instance=ExtResource("12_uxjwr")]
+position = Vector2(2458, 1327)
+
+[node name="Sprite2D12" parent="." instance=ExtResource("13_v6s58")]
+position = Vector2(407.00006, 1408.9999)
