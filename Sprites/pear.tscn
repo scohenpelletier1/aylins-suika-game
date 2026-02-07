@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8i58q2hodwcf"]
+
+[ext_resource type="Texture2D" uid="uid://dsc06xlwcrs2s" path="res://Art/pear.png" id="1_oi0l0"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(1.74, 1.74)
+texture = ExtResource("1_oi0l0")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(5, -53)
+polygon = PackedVector2Array(0, 0, -6, 0, -11, 3, -28, 7, -42, 16, -50, 24, -56, 38, -57, 49, -57, 66, -53, 78, -43, 90, -30, 99, -14, 102, 4, 101, 16, 96, 29, 84, 37, 65, 38, 48, 35, 33, 24, 17, 10, 9, -2, 6)

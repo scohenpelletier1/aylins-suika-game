@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf8jfk8s2d8k"]
+
+[ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="1_y1u1h"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_y1u1h")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2(3, -45)
+polygon = PackedVector2Array(0, 0, -3, 0, -6, 5, -13, 7, -20, 10, -23, 15, -29, 20, -35, 26, -38, 33, -40, 41, -38, 49, -35, 58, -31, 65, -26, 71, -21, 76, -14, 82, -8, 84, -3, 85, 3, 85, 10, 82, 17, 76, 24, 69, 31, 59, 35, 51, 37, 43, 37, 35, 32, 25, 26, 19, 21, 16, 20, 12, 15, 9, 8, 7, 5, 4, 4, 1, 1, 0)
