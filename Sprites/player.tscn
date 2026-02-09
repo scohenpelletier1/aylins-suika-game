@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://cxkixfv8n7dw2" path="res://Scripts/playerBehavior.gd" id="1_bmk3q"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_bmk3q")
-speed = -100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.64, 0.64)

@@ -9,40 +9,34 @@
 size = Vector2(690, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0u6d"]
-size = Vector2(20, 379)
+size = Vector2(604, 379)
 
 [node name="GameView" type="Node2D"]
 
 [node name="Background Elements" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="Background Color" type="Polygon2D" parent="Background Elements"]
 position = Vector2(-479, -362.00003)
 scale = Vector2(2.7071059, 2.836141)
 color = Color(0.79607844, 0.6117647, 0.37254903, 1)
 polygon = PackedVector2Array(2, 1, 3, 654, 1154, 652, 1156, 7)
-metadata/_edit_lock_ = true
 
 [node name="Score" type="Sprite2D" parent="Background Elements"]
 position = Vector2(391, 252)
 scale = Vector2(0.6311983, 0.6311983)
 texture = ExtResource("15_l5n2q")
-metadata/_edit_lock_ = true
 
 [node name="NextFruit" type="Sprite2D" parent="Background Elements"]
 position = Vector2(1545.0001, 254.00002)
 scale = Vector2(0.65016234, 0.65016234)
 texture = ExtResource("14_dxk1r")
-metadata/_edit_lock_ = true
 
 [node name="FruitEvolution" type="Sprite2D" parent="Background Elements"]
 position = Vector2(1538, 558)
 scale = Vector2(0.6440678, 0.64406776)
 texture = ExtResource("1_5gsrv")
-metadata/_edit_lock_ = true
 
 [node name="Box" type="Node2D" parent="Background Elements"]
-metadata/_edit_lock_ = true
 
 [node name="Interior7" type="ColorRect" parent="Background Elements/Box"]
 offset_left = 1244.8396
@@ -179,21 +173,23 @@ offset_right = 366.0
 offset_bottom = 11.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Background Elements"]
-position = Vector2(1375, 229)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/StaticBody2D2"]
-position = Vector2(0, -39)
-shape = SubResource("RectangleShape2D_p0u6d")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Background Elements"]
-position = Vector2(593, 229)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/StaticBody2D"]
-position = Vector2(0, -39.5)
-shape = SubResource("RectangleShape2D_p0u6d")
-
 [node name="Player" parent="." instance=ExtResource("1_nfojt")]
 position = Vector2(960, 93)
+
+[node name="PlayerWall1" type="StaticBody2D" parent="."]
+position = Vector2(621, 229)
+disable_mode = 1
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWall1"]
+position = Vector2(-292, -39.5)
+shape = SubResource("RectangleShape2D_p0u6d")
+
+[node name="PlayerWall2" type="StaticBody2D" parent="."]
+position = Vector2(1638, 229)
+disable_mode = 1
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWall2"]
+position = Vector2(-10, -39)
+shape = SubResource("RectangleShape2D_p0u6d")
