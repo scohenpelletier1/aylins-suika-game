@@ -2,12 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dxw7dt7hbn1q1" path="res://Art/persimmon.png" id="1_vwww4"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Persimmon" type="StaticBody2D"]
 scale = Vector2(0.72, 0.72)
-texture = ExtResource("1_vwww4")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2(-4, -81)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-4.0000005, -81.00001)
+scale = Vector2(1.0000001, 1.0000001)
 polygon = PackedVector2Array(0, 0, -9, 6, -25, 8, -31, 11, -30, 16, -51, 29, -67, 44, -76, 61, -82, 82, -82, 100, -77, 119, -67, 138, -56, 150, -41, 161, -23, 168, -1, 171, 25, 165, 47, 153, 62, 136, 73, 114, 77, 88, 72, 65, 62, 46, 49, 32, 34, 21, 27, 18, 28, 12, 25, 9, 10, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vwww4")

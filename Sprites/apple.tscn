@@ -2,13 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://bw6iqjc3d45l7" path="res://Art/apple.png" id="1_d00b6"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Apple" type="StaticBody2D"]
 rotation = -0.9721484
 scale = Vector2(0.54, 0.54)
-texture = ExtResource("1_d00b6")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2(147.0516, -73.68057)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(147.05164, -73.68057)
+scale = Vector2(1.0000004, 1.0000004)
 polygon = PackedVector2Array(-1.3896332, -0.26257324, -23.886192, -3.074112, -45.748566, -24.475906, -70.39018, -46.40284, -95.78114, -60.555557, -123.31105, -67.196625, -152.15384, -66.88959, -189.21921, -57.34192, -216.48045, -38.74556, -237.88225, -16.883186, -251.5482, 2.123169, -264.4971, 36.377014, -269.33246, 77.20126, -258.92032, 117.308464, -238.85757, 152.04297, -201.89514, 184.93338, -164.82365, 202.01277, -116.56452, 201.77638, -97.410736, 203.23668, -60.159554, 185.08871, -25.239227, 156.42563, -3.4274292, 120.96797, 2.496582, 78.190575, -3.4073486, 44.692165, -13.966919, 16.790627, -2.2480164, 23.32265, 4.3223877, 15.209091)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d00b6")

@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://egqpivx6gq6k" path="res://Art/dekopan.png" id="1_yk7dg"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Dekopan" type="StaticBody2D"]
 scale = Vector2(0.74, 0.74)
-texture = ExtResource("1_yk7dg")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -59)
 polygon = PackedVector2Array(0, 0, -24, -1, -27, 3, -27, 12, -37, 18, -45, 25, -54, 34, -59, 42, -63, 52, -66, 64, -66, 76, -63, 87, -60, 97, -54, 106, -48, 113, -40, 120, -30, 126, -20, 130, -7, 132, 6, 131, 21, 126, 33, 118, 43, 108, 50, 98, 55, 85, 58, 72, 56, 58, 51, 44, 44, 31, 36, 24, 28, 17, 21, 14, 22, 3, 16, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yk7dg")

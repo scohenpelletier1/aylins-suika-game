@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cj6ifm6gfbu30" path="res://Art/grape.png" id="1_edxjd"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Grape" type="StaticBody2D"]
 scale = Vector2(0.71, 0.71)
-texture = ExtResource("1_edxjd")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
-position = Vector2(0, -48)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -47.999996)
 polygon = PackedVector2Array(1, 0, -10, 8, -26, 2, -33, 3, -35, 7, -47, 11, -48, 15, -43, 23, -42, 30, -48, 40, -50, 52, -44, 63, -47, 75, -42, 89, -30, 97, -18, 98, -10, 104, 1, 107, 12, 106, 18, 102, 29, 107, 42, 105, 54, 96, 57, 83, 53, 70, 58, 64, 60, 53, 57, 45, 58, 33, 54, 23, 45, 15, 32, 12, 23, 2, 11, -1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_edxjd")
