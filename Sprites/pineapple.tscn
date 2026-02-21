@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce5pagyjge5oc"]
+
+[ext_resource type="Texture2D" uid="uid://ooc6fs7bdglu" path="res://Art/pineapple.png" id="1_v73ma"]
+
+[node name="Pineapple" type="StaticBody2D"]
+scale = Vector2(2.43, 2.43)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -48.999996)
+scale = Vector2(0.99999994, 0.99999994)
+polygon = PackedVector2Array(0, 0, -12, -4, -17, -3, -18, 4, -25, 8, -25, 14, -31, 20, -40, 28, -46, 38, -50, 54, -50, 75, -46, 86, -38, 96, -30, 103, -19, 108, -1, 110, 12, 108, 19, 106, 31, 99, 43, 85, 48, 67, 47, 52, 42, 37, 33, 26, 21, 16, 24, 12, 23, 8, 15, 4, 15, -1, 11, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v73ma")
