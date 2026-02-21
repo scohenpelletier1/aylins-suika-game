@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwlsx73hq7bv5"]
+[gd_scene load_steps=8 format=3 uid="uid://cwlsx73hq7bv5"]
 
 [ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
 [ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
+[ext_resource type="Script" uid="uid://bl2jrygqgrxci" path="res://Scenes/game_manager.gd" id="5_0obh8"]
 [ext_resource type="Texture2D" uid="uid://bw6tfb5n05ki4" path="res://Art/nextFruit.png" id="14_dxk1r"]
 [ext_resource type="Texture2D" uid="uid://jsio4bft86te" path="res://Art/score.png" id="15_l5n2q"]
 
@@ -193,3 +194,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWall2"]
 position = Vector2(-10, -39)
 shape = SubResource("RectangleShape2D_p0u6d")
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("5_0obh8")

@@ -2,13 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://di41ste70qbgk" path="res://Art/watermelon.png" id="1_uetr5"]
 
-[node name="Watermelon" type="StaticBody2D"]
+[node name="Watermelon" type="RigidBody2D"]
 rotation = 0.64751714
-scale = Vector2(0.81, 0.81)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-110.990265, -146.75545)
+position = Vector2(-88.282814, -120.04642)
+scale = Vector2(0.81, 0.81)
 polygon = PackedVector2Array(-2.607216, -1.7895355, -22.915482, 21.092209, -52.345764, 63.410736, -71.44119, 139.28804, -61.957733, 209.85052, -36.971603, 256.15054, 5.0184174, 303.38232, 60.138466, 333.1612, 121.57894, 343.1145, 186.73264, 331.45276, 231.84631, 309.8714, 281.45074, 261.07178, 306.07544, 217.37254, 317.44965, 161.1264, 302.49716, 73.38576, 270.2926, 22.514679, 226.74756, -13.510727, 168.4372, -40.876785, 98.02892, -42.794037, 41.49444, -26.366852)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.81, 0.81)
 texture = ExtResource("1_uetr5")
