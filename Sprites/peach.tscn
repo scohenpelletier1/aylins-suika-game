@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://crdhhq23u1qev" path="res://Art/peach.png" id="1_xedpg"]
 
-[node name="Peach" type="StaticBody2D"]
-scale = Vector2(2.1, 2.1)
+[node name="Peach" type="RigidBody2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(4.0000005, -46.000004)
-scale = Vector2(1.0000001, 1.0000001)
+position = Vector2(8, -94)
+scale = Vector2(2.1, 2.1)
 polygon = PackedVector2Array(1, -1, -10, 0, -20, 4, -32, 12, -42, 23, -49, 37, -50, 54, -50, 65, -37, 84, -25, 92, -3, 97, 19, 94, 39, 81, 50, 65, 51, 44, 44, 24, 30, 10, 18, 3, 7, -1, 2, -1, 2, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.47619054, 0)
+scale = Vector2(2.1, 2.1)
 texture = ExtResource("1_xedpg")

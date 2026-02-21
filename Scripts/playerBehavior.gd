@@ -34,15 +34,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func spawn_fruits():
-	# create the fruit
-	var fruit_instance = fruits[current_fruit].instantiate()
-	fruit_instance.position = Vector2(3, 60)
-	
-	add_child(fruit_instance)
+	while true:
+		# create the fruit
+		var fruit_instance = fruits[current_fruit].instantiate()
+		fruit_instance.position = Vector2(3, 60)
+				
+		add_child(fruit_instance)
 		
-	# wait 2 seconds for next fruit
-	await get_tree().create_timer(2).timeout
-	
-	# get the new fruits
-	current_fruit = next_fruit
-	next_fruit = fruit_choice.randi_range(0, 4)
+		# wait 2 seconds for next fruit
+		await get_tree().create_timer(2).timeout
+		
+		# get the new fruits
+		current_fruit = next_fruit
+		next_fruit = fruit_choice.randi_range(0, 4)
