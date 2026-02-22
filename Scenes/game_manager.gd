@@ -1,6 +1,10 @@
+# NOT SURE IF SCRIPT IS NEEDED RIGHT NOW
+
 extends Node2D
 
 var score : int = 0
+var fruit_dropped : bool = false
+var playing : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

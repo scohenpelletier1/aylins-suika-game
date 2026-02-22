@@ -1,4 +1,6 @@
 extends RigidBody2D
+signal dropped
+
 var velocity := 10
 var was_dropped : bool = false;
 
@@ -12,7 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	if (!was_dropped):
+	if (!GameManager.fruit_dropped):
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			# make the fruit a child of game view instead of player behavior
 			var current_position = Vector2(global_position.x, global_position.y)
@@ -21,4 +23,4 @@ func _physics_process(delta: float) -> void:
 			
 			# move it down
 			freeze = false
-			was_dropped = true;
+			emit_signal("dropped")

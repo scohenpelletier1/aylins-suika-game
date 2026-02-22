@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://4jy52n3xxtf6"]
+[gd_scene load_steps=5 format=3 uid="uid://4jy52n3xxtf6"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_52at3"]
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_suuul"]
 [ext_resource type="Texture2D" uid="uid://egqpivx6gq6k" path="res://Art/dekopan.png" id="1_yk7dg"]
 
-[node name="Dekopan" type="RigidBody2D"]
-script = ExtResource("1_suuul")
+[sub_resource type="CircleShape2D" id="CircleShape2D_52at3"]
+radius = 63.513515
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, -43)
-scale = Vector2(0.74, 0.74)
-polygon = PackedVector2Array(0, 0, -24, -1, -27, 3, -27, 12, -37, 18, -45, 25, -54, 34, -59, 42, -63, 52, -66, 64, -66, 76, -63, 87, -60, 97, -54, 106, -48, 113, -40, 120, -30, 126, -20, 130, -7, 132, 6, 131, 21, 126, 33, 118, 43, 108, 50, 98, 55, 85, 58, 72, 56, 58, 51, 44, 44, 31, 36, 24, 28, 17, 21, 14, 22, 3, 16, 0)
+[node name="Dekopan" type="RigidBody2D"]
+physics_material_override = ExtResource("1_52at3")
+script = ExtResource("1_suuul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.74, 0.74)
 texture = ExtResource("1_yk7dg")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 8)
+scale = Vector2(0.74, 0.74)
+shape = SubResource("CircleShape2D_52at3")

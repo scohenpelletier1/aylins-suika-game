@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 var speed := Vector2(0, 0)
 var fruit_choice := RandomNumberGenerator.new()
 var current_fruit : int
@@ -34,15 +35,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func spawn_fruits():
-	while true:
+	while (GameManager.playing):
+		await get_tree().process_frame
+		
 		# create the fruit
 		var fruit_instance = fruits[current_fruit].instantiate()
 		fruit_instance.position = Vector2(3, 60)
 				
 		add_child(fruit_instance)
 		
-		# wait 2 seconds for next fruit
+		# wait 2 seconds for next fruit after it's dropped
+		await fruit_instance.dropped
+		
 		await get_tree().create_timer(2).timeout
+		GameManager.fruit_dropped = false
 		
 		# get the new fruits
 		current_fruit = next_fruit
