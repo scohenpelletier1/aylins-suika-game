@@ -1,14 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8i58q2hodwcf"]
+[gd_scene load_steps=5 format=3 uid="uid://b8i58q2hodwcf"]
 
+[ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_3bpdu"]
 [ext_resource type="Texture2D" uid="uid://dsc06xlwcrs2s" path="res://Art/pear.png" id="1_oi0l0"]
+[ext_resource type="PackedScene" uid="uid://c7ejj3bifiksj" path="res://Sprites/peach.tscn" id="2_ew81y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oi0l0"]
+radius = 50.587776
 
 [node name="Pear" type="RigidBody2D"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(9, -91)
-scale = Vector2(1.74, 1.74)
-polygon = PackedVector2Array(0, 0, -6, 0, -11, 3, -28, 7, -42, 16, -50, 24, -56, 38, -57, 49, -57, 66, -53, 78, -43, 90, -30, 99, -14, 102, 4, 101, 16, 96, 29, 84, 37, 65, 38, 48, 35, 33, 24, 17, 10, 9, -2, 6)
+collision_layer = 256
+collision_mask = 8190
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_3bpdu")
+next_fruit = ExtResource("2_ew81y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.74, 1.74)
 texture = ExtResource("1_oi0l0")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 1)
+scale = Vector2(1.74, 1.74)
+shape = SubResource("CircleShape2D_oi0l0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

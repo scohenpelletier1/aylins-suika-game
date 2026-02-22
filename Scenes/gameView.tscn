@@ -151,6 +151,8 @@ metadata/_edit_lock_ = true
 
 [node name="Wall1" type="StaticBody2D" parent="Background Elements/Box"]
 position = Vector2(1308, 224)
+collision_layer = 2
+collision_mask = 8189
 
 [node name="ColorReact" type="ColorRect" parent="Background Elements/Box/Wall1"]
 offset_right = 18.0
@@ -164,6 +166,8 @@ shape = SubResource("RectangleShape2D_tgp8f")
 
 [node name="Wall2" type="StaticBody2D" parent="Background Elements/Box"]
 position = Vector2(632, 224)
+collision_layer = 2
+collision_mask = 8189
 
 [node name="ColorReact" type="ColorRect" parent="Background Elements/Box/Wall2"]
 offset_right = 18.0
@@ -177,6 +181,8 @@ shape = SubResource("RectangleShape2D_npxfu")
 
 [node name="Floor" type="StaticBody2D" parent="Background Elements/Box"]
 position = Vector2(960, 921)
+collision_layer = 2
+collision_mask = 8191
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/Box/Floor"]

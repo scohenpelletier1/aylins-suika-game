@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://csp37jb7j522b"]
+[gd_scene load_steps=6 format=3 uid="uid://csp37jb7j522b"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_3ih7y"]
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_amg30"]
 [ext_resource type="Texture2D" uid="uid://dxw7dt7hbn1q1" path="res://Art/persimmon.png" id="1_vwww4"]
+[ext_resource type="PackedScene" uid="uid://ch6gbwxrjavok" path="res://Sprites/apple.tscn" id="3_bh7dv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ih7y"]
 radius = 81.94445
 
 [node name="Persimmon" type="RigidBody2D"]
+collision_layer = 64
+collision_mask = 8190
 physics_material_override = ExtResource("1_3ih7y")
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_amg30")
+next_fruit = ExtResource("3_bh7dv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.72, 0.72)
@@ -19,3 +25,5 @@ texture = ExtResource("1_vwww4")
 position = Vector2(-5.0000005, 7)
 scale = Vector2(0.72, 0.72)
 shape = SubResource("CircleShape2D_3ih7y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
