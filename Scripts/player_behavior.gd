@@ -13,7 +13,7 @@ var next_fruit : int
 	preload("res://Sprites/persimmon.tscn")]
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:	
+func _ready() -> void:
 	# starting position for the player
 	global_position.x = 960
 	global_position.y = 91

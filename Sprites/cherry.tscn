@@ -1,13 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://cclomew5xjo6u"]
+[gd_scene load_steps=6 format=3 uid="uid://cclomew5xjo6u"]
 
 [ext_resource type="Texture2D" uid="uid://d4a27go4rxkuk" path="res://Art/cherry.png" id="1_8pvkm"]
+[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_b7rhq"]
+[ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_ibmso"]
+[ext_resource type="PackedScene" uid="uid://cf8jfk8s2d8k" path="res://Sprites/strawberry.tscn" id="3_i3ewj"]
 
-[node name="Cherry" type="StaticBody2D"]
-scale = Vector2(0.71, 0.71)
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7rhq"]
+radius = 29.577465
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(5.9999995, -47)
-polygon = PackedVector2Array(0, 0, -7, 6, -12, 14, -12, 24, -23, 27, -32, 34, -38, 45, -40, 56, -37, 66, -31, 74, -22, 80, -12, 83, -1, 80, 8, 75, 15, 64, 18, 54, 16, 42, 10, 33, -2, 26, -4, 22, -4, 18, 2, 21, 10, 21, 17, 16, 16, 12, 7, 8, 3, 6)
+[node name="Cherry" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8190
+physics_material_override = ExtResource("1_b7rhq")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ibmso")
+next_fruit = ExtResource("3_i3ewj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.71, 0.71)
 texture = ExtResource("1_8pvkm")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 5)
+scale = Vector2(0.71, 0.71)
+shape = SubResource("CircleShape2D_b7rhq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

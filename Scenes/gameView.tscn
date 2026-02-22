@@ -1,15 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwlsx73hq7bv5"]
+[gd_scene load_steps=10 format=3 uid="uid://cwlsx73hq7bv5"]
 
 [ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
 [ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
+[ext_resource type="PackedScene" uid="uid://df1ex3g2c05fp" path="res://game_manager.tscn" id="5_0obh8"]
 [ext_resource type="Texture2D" uid="uid://bw6tfb5n05ki4" path="res://Art/nextFruit.png" id="14_dxk1r"]
 [ext_resource type="Texture2D" uid="uid://jsio4bft86te" path="res://Art/score.png" id="15_l5n2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgp8f"]
+size = Vector2(18, 685)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npxfu"]
+size = Vector2(18, 683)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0obh8"]
 size = Vector2(690, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0u6d"]
-size = Vector2(604, 379)
+size = Vector2(605, 379)
 
 [node name="GameView" type="Node2D"]
 
@@ -142,24 +149,40 @@ offset_bottom = 166.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="Side5" type="ColorRect" parent="Background Elements/Box"]
-offset_left = 632.0
-offset_top = 224.0
-offset_right = 650.0
-offset_bottom = 918.0
+[node name="Wall1" type="StaticBody2D" parent="Background Elements/Box"]
+position = Vector2(1308, 224)
+collision_layer = 2
+collision_mask = 8189
+
+[node name="ColorReact" type="ColorRect" parent="Background Elements/Box/Wall1"]
+offset_right = 18.0
+offset_bottom = 691.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="Side6" type="ColorRect" parent="Background Elements/Box"]
-offset_left = 1308.0
-offset_top = 224.0
-offset_right = 1326.0
-offset_bottom = 915.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/Box/Wall1"]
+position = Vector2(9, 342.5)
+shape = SubResource("RectangleShape2D_tgp8f")
+
+[node name="Wall2" type="StaticBody2D" parent="Background Elements/Box"]
+position = Vector2(632, 224)
+collision_layer = 2
+collision_mask = 8189
+
+[node name="ColorReact" type="ColorRect" parent="Background Elements/Box/Wall2"]
+offset_right = 18.0
+offset_bottom = 694.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/Box/Wall2"]
+position = Vector2(9, 344.5)
+shape = SubResource("RectangleShape2D_npxfu")
 
 [node name="Floor" type="StaticBody2D" parent="Background Elements/Box"]
 position = Vector2(960, 921)
+collision_layer = 2
+collision_mask = 8191
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/Box/Floor"]
@@ -182,7 +205,7 @@ disable_mode = 1
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWall1"]
-position = Vector2(-292, -39.5)
+position = Vector2(-291.5, -39.5)
 shape = SubResource("RectangleShape2D_p0u6d")
 
 [node name="PlayerWall2" type="StaticBody2D" parent="."]
@@ -193,3 +216,5 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWall2"]
 position = Vector2(-10, -39)
 shape = SubResource("RectangleShape2D_p0u6d")
+
+[node name="GameManager" parent="." instance=ExtResource("5_0obh8")]
