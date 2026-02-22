@@ -28,6 +28,17 @@ window/size/viewport_height=1080
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Walls"
+2d_physics/layer_3="Cherry"
+2d_physics/layer_4="Strawberry"
+2d_physics/layer_5="Grape"
+2d_physics/layer_6="Dekopan"
+2d_physics/layer_7="Persimmon"
+2d_physics/layer_8="Apple"
+2d_physics/layer_9="Pear"
+2d_physics/layer_10="Peach"
+2d_physics/layer_11="Pineapple"
+2d_physics/layer_12="Melon"
+2d_physics/layer_13="Watermelon"
 
 [rendering]
 

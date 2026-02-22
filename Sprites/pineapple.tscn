@@ -1,14 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce5pagyjge5oc"]
+[gd_scene load_steps=5 format=3 uid="uid://ce5pagyjge5oc"]
 
+[ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_4rih3"]
 [ext_resource type="Texture2D" uid="uid://ooc6fs7bdglu" path="res://Art/pineapple.png" id="1_v73ma"]
+[ext_resource type="PackedScene" uid="uid://coo8r7jp124mu" path="res://Sprites/melon.tscn" id="2_lggr1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v73ma"]
+radius = 51.028805
+height = 111.93414
 
 [node name="Pineapple" type="RigidBody2D"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, -118)
-scale = Vector2(2.43, 2.43)
-polygon = PackedVector2Array(0, 0, -12, -4, -17, -3, -18, 4, -25, 8, -25, 14, -31, 20, -40, 28, -46, 38, -50, 54, -50, 75, -46, 86, -38, 96, -30, 103, -19, 108, -1, 110, 12, 108, 19, 106, 31, 99, 43, 85, 48, 67, 47, 52, 42, 37, 33, 26, 21, 16, 24, 12, 23, 8, 15, 4, 15, -1, 11, -4)
+collision_layer = 1024
+collision_mask = 8190
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_4rih3")
+next_fruit = ExtResource("2_lggr1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.43, 2.43)
 texture = ExtResource("1_v73ma")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 15.000001)
+scale = Vector2(2.43, 2.43)
+shape = SubResource("CapsuleShape2D_v73ma")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

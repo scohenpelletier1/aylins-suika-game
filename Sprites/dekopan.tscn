@@ -1,15 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://4jy52n3xxtf6"]
+[gd_scene load_steps=6 format=3 uid="uid://4jy52n3xxtf6"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_52at3"]
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_suuul"]
 [ext_resource type="Texture2D" uid="uid://egqpivx6gq6k" path="res://Art/dekopan.png" id="1_yk7dg"]
+[ext_resource type="PackedScene" uid="uid://csp37jb7j522b" path="res://Sprites/persimmon.tscn" id="3_vwvba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_52at3"]
 radius = 63.513515
 
 [node name="Dekopan" type="RigidBody2D"]
+collision_layer = 32
+collision_mask = 8190
 physics_material_override = ExtResource("1_52at3")
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_suuul")
+next_fruit = ExtResource("3_vwvba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.74, 0.74)
@@ -19,3 +25,5 @@ texture = ExtResource("1_yk7dg")
 position = Vector2(-3, 8)
 scale = Vector2(0.74, 0.74)
 shape = SubResource("CircleShape2D_52at3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
