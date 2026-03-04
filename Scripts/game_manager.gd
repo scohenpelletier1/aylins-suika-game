@@ -1,9 +1,15 @@
 extends Node2D
 
+# manager variables
 var score : int = 0
 var fruit_dropped : bool = false
 var playing : bool = true
 
+# ui variables
+var current_score : Label
+var best_score : Label
+
+# eported variables
 @export var fruits: Array[Texture2D] = [
 	preload("res://Art/cherry.png"),
 	preload("res://Art/strawberry.png"),
@@ -11,13 +17,14 @@ var playing : bool = true
 	preload("res://Art/dekopan.png"),
 	preload("res://Art/persimmon.png")]
 
-#var fruits_scale : Array[Vector2] = [
-	#
-#]
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# get the current and best score variables
+	current_score = get_tree().current_scene.get_node("CanvasLayer").get_child(2)
+	best_score = get_tree().current_scene.get_node("CanvasLayer").get_child(2)
+	
+	# set the current score to 0
+	current_score.text = "0"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +34,7 @@ func _process(delta: float) -> void:
 
 func add_points(points: int):
 	score += points
+	current_score.text = str(score)
 
 
 func update_next(fruit_type: int):
@@ -51,6 +59,3 @@ func update_next(fruit_type: int):
 	else:
 		next_fruit.scale = Vector2(0.72, 0.72)
 		next_fruit.position = Vector2(1546.0, 272.0)
-	
-	# set fruit
-	#next_fruit.texture = new_texture
