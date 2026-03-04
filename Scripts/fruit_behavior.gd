@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		# make the fruit a child of game view instead of player behavior
 		var current_position = Vector2(global_position.x, global_position.y)
 		top_level = true
+		reparent(get_tree().current_scene.get_node("Fruits"), true)
 		global_position = current_position
 		
 		# move it down
@@ -61,8 +62,8 @@ func _on_body_entered(body: RigidBody2D) -> void:
 		# create the new fruit
 		var fruit_instance = next_fruit.instantiate()
 		fruit_instance.global_position = fruit_position
-		get_tree().current_scene.add_child(fruit_instance)
-		
+		get_tree().current_scene.get_node("Fruits").add_child(fruit_instance)
+				
 		# delete current fruits
 		body.queue_free()
 		queue_free()

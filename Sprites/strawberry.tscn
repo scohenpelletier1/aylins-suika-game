@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cf8jfk8s2d8k"]
 
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_gu0xn"]
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_h085a"]
+[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_h085a"]
 [ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="1_y1u1h"]
 [ext_resource type="PackedScene" uid="uid://cqreymv06nfc5" path="res://Sprites/grape.tscn" id="3_fbh2p"]
 

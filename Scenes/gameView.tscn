@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwlsx73hq7bv5"]
+[gd_scene load_steps=11 format=3 uid="uid://cwlsx73hq7bv5"]
 
 [ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
 [ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
 [ext_resource type="PackedScene" uid="uid://df1ex3g2c05fp" path="res://Scenes/game_manager.tscn" id="5_0obh8"]
+[ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="6_tgp8f"]
 [ext_resource type="Texture2D" uid="uid://bw6tfb5n05ki4" path="res://Art/nextFruit.png" id="14_dxk1r"]
 [ext_resource type="Texture2D" uid="uid://jsio4bft86te" path="res://Art/score.png" id="15_l5n2q"]
 
@@ -43,9 +44,9 @@ position = Vector2(1538, 558)
 scale = Vector2(0.6440678, 0.64406776)
 texture = ExtResource("1_5gsrv")
 
-[node name="Box" type="Node2D" parent="Background Elements"]
+[node name="Box" type="Node2D" parent="."]
 
-[node name="Interior7" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior7" type="ColorRect" parent="Box"]
 offset_left = 1244.8396
 offset_top = 180.28905
 offset_right = 1272.5168
@@ -54,7 +55,7 @@ rotation = -0.5959708
 color = Color(0.8392157, 0.7490196, 0.5176471, 1)
 metadata/_edit_lock_ = true
 
-[node name="Interior6" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior6" type="ColorRect" parent="Box"]
 offset_left = 694.2433
 offset_top = 165.3443
 offset_right = 720.261
@@ -63,7 +64,7 @@ rotation = 0.6111434
 color = Color(0.8392157, 0.7490196, 0.5176471, 1)
 metadata/_edit_lock_ = true
 
-[node name="Interior5" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior5" type="ColorRect" parent="Box"]
 offset_left = 1266.0
 offset_top = 228.0
 offset_right = 1308.0
@@ -71,7 +72,7 @@ offset_bottom = 909.0
 color = Color(0.8392157, 0.7490196, 0.5176471, 1)
 metadata/_edit_lock_ = true
 
-[node name="Interior8" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior8" type="ColorRect" parent="Box"]
 offset_left = 692.0
 offset_top = 165.0
 offset_right = 1266.0
@@ -79,7 +80,7 @@ offset_bottom = 849.0
 color = Color(0.9843137, 0.91764706, 0.7372549, 1)
 metadata/_edit_lock_ = true
 
-[node name="Interior4" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior4" type="ColorRect" parent="Box"]
 offset_left = 650.0
 offset_top = 227.0
 offset_right = 693.0
@@ -87,7 +88,7 @@ offset_bottom = 908.0
 color = Color(0.8392157, 0.7490196, 0.5176471, 1)
 metadata/_edit_lock_ = true
 
-[node name="Interior3" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior3" type="ColorRect" parent="Box"]
 offset_left = 1278.859
 offset_top = 931.19727
 offset_right = 1355.3916
@@ -96,7 +97,7 @@ rotation = -2.1589186
 color = Color(0.8980392, 0.8509804, 0.62352943, 1)
 metadata/_edit_lock_ = true
 
-[node name="Interior2" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior2" type="ColorRect" parent="Box"]
 offset_left = 649.9485
 offset_top = 910.5729
 offset_right = 725.20264
@@ -105,7 +106,7 @@ rotation = -0.95768803
 color = Color(0.8980392, 0.8509804, 0.62352943, 1)
 metadata/_edit_lock_ = true
 
-[node name="Interior1" type="ColorRect" parent="Background Elements/Box"]
+[node name="Interior1" type="ColorRect" parent="Box"]
 offset_left = 694.0
 offset_top = 849.0
 offset_right = 1265.0
@@ -113,7 +114,7 @@ offset_bottom = 908.0
 color = Color(0.8980392, 0.8509804, 0.62352943, 1)
 metadata/_edit_lock_ = true
 
-[node name="Side1" type="ColorRect" parent="Background Elements/Box"]
+[node name="Side1" type="ColorRect" parent="Box"]
 offset_left = 647.0
 offset_top = 234.00002
 offset_right = 662.3924
@@ -123,7 +124,7 @@ scale = Vector2(1.1548047, 1)
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="Side2" type="ColorRect" parent="Background Elements/Box"]
+[node name="Side2" type="ColorRect" parent="Box"]
 offset_left = 651.0
 offset_top = 210.0
 offset_right = 1309.0
@@ -131,7 +132,7 @@ offset_bottom = 228.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="Side3" type="ColorRect" parent="Background Elements/Box"]
+[node name="Side3" type="ColorRect" parent="Box"]
 offset_left = 1275.8939
 offset_top = 146.06958
 offset_right = 1356.0637
@@ -141,7 +142,7 @@ scale = Vector2(1.1548047, 1)
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="Side4" type="ColorRect" parent="Background Elements/Box"]
+[node name="Side4" type="ColorRect" parent="Box"]
 offset_left = 686.0
 offset_top = 146.0
 offset_right = 1276.0
@@ -149,47 +150,47 @@ offset_bottom = 166.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="Wall1" type="StaticBody2D" parent="Background Elements/Box"]
+[node name="Wall1" type="StaticBody2D" parent="Box"]
 position = Vector2(1308, 224)
 collision_layer = 2
 collision_mask = 8189
 
-[node name="ColorReact" type="ColorRect" parent="Background Elements/Box/Wall1"]
+[node name="ColorReact" type="ColorRect" parent="Box/Wall1"]
 offset_right = 18.0
 offset_bottom = 691.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/Box/Wall1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Wall1"]
 position = Vector2(9, 342.5)
 shape = SubResource("RectangleShape2D_tgp8f")
 
-[node name="Wall2" type="StaticBody2D" parent="Background Elements/Box"]
+[node name="Wall2" type="StaticBody2D" parent="Box"]
 position = Vector2(632, 224)
 collision_layer = 2
 collision_mask = 8189
 
-[node name="ColorReact" type="ColorRect" parent="Background Elements/Box/Wall2"]
+[node name="ColorReact" type="ColorRect" parent="Box/Wall2"]
 offset_right = 18.0
 offset_bottom = 694.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/Box/Wall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Wall2"]
 position = Vector2(9, 344.5)
 shape = SubResource("RectangleShape2D_npxfu")
 
-[node name="Floor" type="StaticBody2D" parent="Background Elements/Box"]
+[node name="Floor" type="StaticBody2D" parent="Box"]
 position = Vector2(960, 921)
 collision_layer = 2
 collision_mask = 8191
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background Elements/Box/Floor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Floor"]
 position = Vector2(20, -1.5)
 shape = SubResource("RectangleShape2D_0obh8")
 
-[node name="ColorRect" type="ColorRect" parent="Background Elements/Box/Floor"]
+[node name="ColorRect" type="ColorRect" parent="Box/Floor"]
 offset_left = -328.0
 offset_top = -14.0
 offset_right = 366.0
@@ -198,6 +199,8 @@ color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_nfojt")]
 position = Vector2(960, 93)
+
+[node name="Fruits" type="Node2D" parent="."]
 
 [node name="PlayerWall1" type="StaticBody2D" parent="."]
 position = Vector2(621, 229)
@@ -218,3 +221,10 @@ position = Vector2(-10, -39)
 shape = SubResource("RectangleShape2D_p0u6d")
 
 [node name="GameManager" parent="." instance=ExtResource("5_0obh8")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1540, 275)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_tgp8f")

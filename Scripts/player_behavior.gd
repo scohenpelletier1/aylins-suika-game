@@ -21,6 +21,7 @@ func _ready() -> void:
 	# first fruits generated
 	current_fruit = 0
 	next_fruit = fruit_choice.randi_range(0, 4)
+	GameManager.update_next(next_fruit)
 	
 	# start spawining fruits
 	spawn_fruits()
@@ -55,3 +56,6 @@ func spawn_fruits():
 		# get the new fruits
 		current_fruit = next_fruit
 		next_fruit = fruit_choice.randi_range(0, 4)
+		
+		# update the UI
+		GameManager.update_next(next_fruit)
