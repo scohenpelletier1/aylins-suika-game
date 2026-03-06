@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://csp37jb7j522b"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_3ih7y"]
+[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_3ih7y"]
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_amg30"]
 [ext_resource type="Texture2D" uid="uid://dxw7dt7hbn1q1" path="res://Art/persimmon.png" id="1_vwww4"]
 [ext_resource type="PackedScene" uid="uid://ch6gbwxrjavok" path="res://Sprites/apple.tscn" id="3_bh7dv"]

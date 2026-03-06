@@ -13,11 +13,11 @@ config_version=5
 config/name="Aylin's Suika Game"
 run/main_scene="uid://cwlsx73hq7bv5"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Godot Junk/icon.svg"
 
 [autoload]
 
-GameManager="*res://game_manager.tscn"
+GameManager="*res://Scenes/game_manager.tscn"
 
 [display]
 
