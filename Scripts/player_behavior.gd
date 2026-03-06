@@ -25,6 +25,9 @@ func _ready() -> void:
 	
 	# start spawining fruits
 	spawn_fruits()
+	
+	# have reset player ready
+	reset_player()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,7 +48,7 @@ func spawn_fruits():
 		# create the fruit
 		var fruit_instance = fruits[current_fruit].instantiate()
 		fruit_instance.position = Vector2(3, 60)
-				
+		
 		add_child(fruit_instance)
 		
 		# wait 1 seconds for next fruit after it's dropped
@@ -59,3 +62,19 @@ func spawn_fruits():
 		
 		# update the UI
 		GameManager.update_next(next_fruit)
+
+
+func reset_player():
+	await GameManager.reset
+		
+	# first fruits generated
+	current_fruit = 0
+	next_fruit = fruit_choice.randi_range(0, 4)
+	GameManager.update_next(next_fruit)
+		
+	# start spawining fruits
+	spawn_fruits()
+	
+	# set up reset player again
+	reset_player()
+	

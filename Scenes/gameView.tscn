@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwlsx73hq7bv5"]
+[gd_scene load_steps=17 format=3 uid="uid://cwlsx73hq7bv5"]
 
 [ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
 [ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
 [ext_resource type="PackedScene" uid="uid://df1ex3g2c05fp" path="res://Scenes/game_manager.tscn" id="5_0obh8"]
+[ext_resource type="Script" uid="uid://boh2f3suawiqg" path="res://Scripts/lose_trigger.gd" id="5_uroep"]
 [ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="6_tgp8f"]
 [ext_resource type="FontFile" uid="uid://b066gsqubkohl" path="res://Dosis-Bold.ttf" id="7_6u6mn"]
+[ext_resource type="Texture2D" uid="uid://dh1h2hjqxrsij" path="res://Art/gameOver.png" id="8_6u6mn"]
+[ext_resource type="Texture2D" uid="uid://dat0sjpsiptox" path="res://Art/button.png" id="10_nfojt"]
+[ext_resource type="Script" uid="uid://dqk10ikk24faq" path="res://Scripts/button.gd" id="11_kd8cv"]
 [ext_resource type="Texture2D" uid="uid://bw6tfb5n05ki4" path="res://Art/nextFruit.png" id="14_dxk1r"]
 [ext_resource type="Texture2D" uid="uid://jsio4bft86te" path="res://Art/score.png" id="15_l5n2q"]
 
@@ -19,6 +23,9 @@ size = Vector2(690, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0u6d"]
 size = Vector2(605, 379)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u6mn"]
+size = Vector2(694, 19)
 
 [node name="GameView" type="Node2D"]
 
@@ -126,12 +133,12 @@ color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
 [node name="Side2" type="ColorRect" parent="Box"]
+z_index = 100
 offset_left = 651.0
 offset_top = 210.0
 offset_right = 1309.0
 offset_bottom = 228.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
-metadata/_edit_lock_ = true
 
 [node name="Side3" type="ColorRect" parent="Box"]
 offset_left = 1275.8939
@@ -198,23 +205,33 @@ offset_right = 366.0
 offset_bottom = 11.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 
+[node name="Fruits" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("1_nfojt")]
 position = Vector2(960, 93)
 
-[node name="Fruits" type="Node2D" parent="."]
-
-[node name="PlayerWall1" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="."]
 position = Vector2(621, 229)
 disable_mode = 1
 collision_layer = 2
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="PlayerWall1"]
+[node name="PlayerWall2" type="CollisionShape2D" parent="Walls"]
 position = Vector2(1007, -39)
 shape = SubResource("RectangleShape2D_p0u6d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerWall1"]
+[node name="PlayerWall1" type="CollisionShape2D" parent="Walls"]
 position = Vector2(-291.5, -39.5)
 shape = SubResource("RectangleShape2D_p0u6d")
+
+[node name="LoseGame" type="Area2D" parent="."]
+position = Vector2(621, 229)
+collision_layer = 2
+collision_mask = 8188
+script = ExtResource("5_uroep")
+
+[node name="CollisionNode2D" type="CollisionShape2D" parent="LoseGame"]
+position = Vector2(358, -145)
+shape = SubResource("RectangleShape2D_6u6mn")
 
 [node name="GameManager" parent="." instance=ExtResource("5_0obh8")]
 
@@ -224,8 +241,6 @@ shape = SubResource("RectangleShape2D_p0u6d")
 position = Vector2(1540, 275)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_tgp8f")
-
-[node name="Node2D" type="Node2D" parent="CanvasLayer/Sprite2D"]
 
 [node name="BestScore" type="Label" parent="CanvasLayer"]
 offset_left = 330.0
@@ -250,5 +265,65 @@ theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 60
 text = "46567"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverScreen" type="Node2D" parent="CanvasLayer"]
+visible = false
+scale = Vector2(1.0006213, 1)
+
+[node name="GameOver" type="Sprite2D" parent="CanvasLayer/GameOverScreen"]
+position = Vector2(983.00006, 498)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_6u6mn")
+
+[node name="FinalScore" type="Label" parent="CanvasLayer/GameOverScreen"]
+offset_left = 909.0
+offset_top = 413.0
+offset_right = 1065.0
+offset_bottom = 490.0
+theme_override_colors/font_color = Color(0.9882353, 0.9411765, 0.84313726, 1)
+theme_override_colors/font_outline_color = Color(0.5254902, 0.3882353, 0.19607843, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 60
+text = "46567"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalBestScore" type="Label" parent="CanvasLayer/GameOverScreen"]
+offset_left = 1021.0
+offset_top = 508.0
+offset_right = 1125.0
+offset_bottom = 560.0
+theme_override_colors/font_color = Color(0.9254902, 0.88235295, 0.70980394, 1)
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 40
+text = "46567"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/GameOverScreen"]
+offset_left = 822.4889
+offset_top = 582.0
+offset_right = 896.4889
+offset_bottom = 656.0
+scale = Vector2(4.339979, 1.0003648)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_6u6mn")
+icon = ExtResource("10_nfojt")
+flat = true
+icon_alignment = 1
+script = ExtResource("11_kd8cv")
+
+[node name="Label" type="Label" parent="CanvasLayer/GameOverScreen"]
+offset_left = 870.4591
+offset_top = 583.0
+offset_right = 1106.4591
+offset_bottom = 655.0
+theme_override_colors/font_color = Color(0.24313726, 0.24313726, 0.23921569, 1)
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 40
+text = "Play Again"
 horizontal_alignment = 1
 vertical_alignment = 1
