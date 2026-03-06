@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byldabj447gem"
-path="res://.godot/imported/peach.png-1bd39f5dd4993effd6dc9d78edb06d6c.ctex"
+uid="uid://dh1h2hjqxrsij"
+path="res://.godot/imported/gameOver.png-fc020861bae707a262a93240c6c916b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/peach.png"
-dest_files=["res://.godot/imported/peach.png-1bd39f5dd4993effd6dc9d78edb06d6c.ctex"]
+source_file="res://Art/gameOver.png"
+dest_files=["res://.godot/imported/gameOver.png-fc020861bae707a262a93240c6c916b4.ctex"]
 
 [params]
 

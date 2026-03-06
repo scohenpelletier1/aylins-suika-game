@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ce5pagyjge5oc"]
 
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_4rih3"]
-[ext_resource type="Texture2D" uid="uid://ooc6fs7bdglu" path="res://Art/pineapple.png" id="1_v73ma"]
+[ext_resource type="Texture2D" uid="uid://dl1j84xxta7gm" path="res://Art/pineapple.png" id="1_v73ma"]
 [ext_resource type="PackedScene" uid="uid://coo8r7jp124mu" path="res://Sprites/melon.tscn" id="2_lggr1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v73ma"]
@@ -17,11 +17,13 @@ script = ExtResource("1_4rih3")
 next_fruit = ExtResource("2_lggr1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.43, 2.43)
+position = Vector2(-40, 30)
+rotation = -0.6170437
+scale = Vector2(0.67241204, 0.67241204)
 texture = ExtResource("1_v73ma")
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 15.000001)
+position = Vector2(-6, 17)
 scale = Vector2(2.43, 2.43)
 shape = SubResource("CapsuleShape2D_v73ma")
 
