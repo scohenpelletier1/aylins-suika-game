@@ -1,14 +1,22 @@
 extends RigidBody2D
+
+# signals
 signal dropped
 
+# exported variables
 @export var next_fruit : PackedScene
 
-var velocity := 10
+# instance variables
+var velocity : Vector2
 var was_dropped : bool = false
 var fruit_type : int
+var is_dragging : bool = false
+var drag_offset : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	input_pickable = true
+	
 	if (get_parent().name == "Player"):
 		# freeze when first spawned
 		freeze = true
@@ -21,12 +29,24 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:	
+func _process(_delta: float) -> void:	
 	pass
 
 
-func _physics_process(delta: float) -> void:
-	if (!was_dropped && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+func _physics_process(_delta: float) -> void:
+	# start dragging
+	if (is_dragging):
+		global_position = get_global_mouse_position() + drag_offset
+	
+	# end dragging
+	if ((not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and (is_dragging)):
+		is_dragging = false
+		freeze = false
+		#linear_velocity = Vector2.ZERO
+		# Restore collisions
+		return
+	
+	if (not was_dropped and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and GameManager.dropMode):
 		# make the fruit a child of game view instead of player behavior
 		var current_position = Vector2(global_position.x, global_position.y)
 		top_level = true
@@ -51,14 +71,14 @@ func _physics_process(delta: float) -> void:
 
 func _handle_collisions(body: Node) -> void:
 	# ignore everything that isn't a rigidbody2d
-	if !(body is RigidBody2D):
+	if not (body is RigidBody2D):
 		return
 	
 	# only one object can handle the "evoludion" of fruits
 	if get_instance_id() > body.get_instance_id():
 		return
 	
-	if (was_dropped && body.collision_layer == fruit_type):
+	if (was_dropped and body.collision_layer == fruit_type):
 		set_deferred("contact_monitor", false)
 		body.set_deferred("contact_monitor", false)
 		
@@ -108,3 +128,15 @@ func _handle_collisions(body: Node) -> void:
 		# delete current fruits
 		call_deferred("queue_free")
 		body.call_deferred("queue_free")
+
+
+func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+	if not (event is InputEventMouseButton):
+		return
+		
+	if (event is InputEventMouseButton):
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+			if (was_dropped and GameManager.moveMode):
+				is_dragging = true
+				freeze = true
+				drag_offset = global_position - get_global_mouse_position()
