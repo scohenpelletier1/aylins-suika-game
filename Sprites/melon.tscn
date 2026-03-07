@@ -28,3 +28,4 @@ scale = Vector2(1.64, 1.64)
 shape = SubResource("CircleShape2D_f5kqy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
