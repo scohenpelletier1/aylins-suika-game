@@ -5,6 +5,8 @@ var score : int = 0
 var fruit_dropped : bool = false
 var playing : bool = true
 var lost : bool = false
+var dropMode : bool = true
+var moveMode : bool = false
 
 # ui variables
 var current_score : Label
@@ -33,10 +35,16 @@ func _ready() -> void:
 	# get game over screen
 	game_over = get_tree().current_scene.get_node("CanvasLayer").get_child(3)
 	
+	# ignore the box
+	var box = get_tree().current_scene.get_node("Box")
+	
+	for child in box.get_children():
+		if child is Control:
+			child.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -100,3 +108,20 @@ func reset_game():
 	
 	for child in children:
 		child.queue_free()
+
+
+func _input(event):
+	if (event is InputEventKey):
+		if (event.keycode == KEY_D):
+			dropMode = true
+			moveMode = false
+			
+			# update ui
+			get_tree().current_scene.get_node("CanvasLayer").get_child(5).text = "Drop Mode Active"
+		
+		if (event.keycode == KEY_M):
+			dropMode = false
+			moveMode = true
+			
+			# update ui
+			get_tree().current_scene.get_node("CanvasLayer").get_child(5).text = "Move Mode Active"
