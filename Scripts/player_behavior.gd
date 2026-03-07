@@ -31,14 +31,15 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _physics_process(delta: float) -> void:
-	var target_x = get_global_mouse_position().x
-	velocity = Vector2((target_x - global_position.x) / delta, 0)
-	move_and_slide()
+	if (GameManager.dropMode):
+		var target_x = get_global_mouse_position().x
+		velocity = Vector2((target_x - global_position.x) / delta, 0)
+		move_and_slide()
 
 
 func spawn_fruits():
