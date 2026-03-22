@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwlsx73hq7bv5"]
+[gd_scene load_steps=21 format=3 uid="uid://cwlsx73hq7bv5"]
 
 [ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
 [ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
+[ext_resource type="Texture2D" uid="uid://1ktvefn8sxex" path="res://Art/leaderboard.png" id="4_fhiiq"]
 [ext_resource type="PackedScene" uid="uid://df1ex3g2c05fp" path="res://Scenes/game_manager.tscn" id="5_0obh8"]
 [ext_resource type="Script" uid="uid://boh2f3suawiqg" path="res://Scripts/lose_trigger.gd" id="5_uroep"]
 [ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="6_tgp8f"]
@@ -26,6 +27,12 @@ size = Vector2(576, 379)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u6mn"]
 size = Vector2(694, 19)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhiiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxjwr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6s58"]
 
 [node name="GameView" type="Node2D"]
 
@@ -205,6 +212,11 @@ offset_right = 366.0
 offset_bottom = 11.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 
+[node name="Leaderboard" type="Sprite2D" parent="Box/Floor"]
+position = Vector2(-576, -250)
+scale = Vector2(0.67413795, 0.67413795)
+texture = ExtResource("4_fhiiq")
+
 [node name="Fruits" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_nfojt")]
@@ -356,3 +368,83 @@ theme_override_font_sizes/font_size = 30
 text = "Drop Mode Active"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Leaderboard1" type="Label" parent="CanvasLayer"]
+offset_left = 301.0
+offset_top = 589.0
+offset_right = 481.0
+offset_bottom = 628.0
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 30
+text = "-- | --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leaderboard2" type="Label" parent="CanvasLayer"]
+offset_left = 301.0
+offset_top = 657.0
+offset_right = 481.0
+offset_bottom = 696.0
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 30
+text = "-- | --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leaderboard3" type="Label" parent="CanvasLayer"]
+offset_left = 301.0
+offset_top = 726.0
+offset_right = 481.0
+offset_bottom = 765.0
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 30
+text = "-- | --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leaderboard4" type="Label" parent="CanvasLayer"]
+offset_left = 301.0
+offset_top = 794.0
+offset_right = 481.0
+offset_bottom = 833.0
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 30
+text = "-- | --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leaderboard5" type="Label" parent="CanvasLayer"]
+offset_left = 301.0
+offset_top = 863.0
+offset_right = 481.0
+offset_bottom = 902.0
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 30
+text = "-- | --"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="CanvasLayer"]
+offset_left = 221.0
+offset_top = 507.0
+offset_right = 409.0
+offset_bottom = 546.0
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 30
+text = "Name: __________________________"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+offset_left = 302.0
+offset_top = 498.0
+offset_right = 414.0
+offset_bottom = 545.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_6u6mn")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fhiiq")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_uxjwr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v6s58")
+max_length = 19
+expand_to_text_length = true
