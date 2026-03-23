@@ -1,4 +1,5 @@
 extends RigidBody2D
+<<<<<<< HEAD
 signal dropped
 
 @export var next_fruit : PackedScene
@@ -9,11 +10,34 @@ var fruit_type : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+=======
+
+# signals
+signal dropped
+
+# exported variables
+@export var next_fruit : PackedScene
+
+# instance variables
+var velocity : Vector2
+var was_dropped : bool = false
+var fruit_type : int
+var is_dragging : bool = false
+var drag_offset : Vector2
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	input_pickable = true
+	
+>>>>>>> origin/main
 	if (get_parent().name == "Player"):
 		# freeze when first spawned
 		freeze = true
 	else:
+<<<<<<< HEAD
 		# if not spawned by player, then it's been "dropped"
+=======
+>>>>>>> origin/main
 		was_dropped = true
 	
 	# get fruit type and enable collisions
@@ -22,6 +46,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+<<<<<<< HEAD
 func _process(delta: float) -> void:	
 	pass
 
@@ -31,11 +56,42 @@ func _physics_process(delta: float) -> void:
 		# make the fruit a child of game view instead of player behavior
 		var current_position = Vector2(global_position.x, global_position.y)
 		top_level = true
+=======
+func _process(_delta: float) -> void:	
+	pass
+
+
+func _physics_process(_delta: float) -> void:
+	# start dragging
+	if (is_dragging):
+		global_position = get_global_mouse_position() + drag_offset
+	
+	# end dragging
+	if ((not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and (is_dragging)):
+		is_dragging = false
+		freeze = false
+		#linear_velocity = Vector2.ZERO
+		# Restore collisions
+		return
+	
+	if (not was_dropped and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and GameManager.dropMode):
+		# make the fruit a child of game view instead of player behavior
+		var current_position = Vector2(global_position.x, global_position.y)
+		top_level = true
+		
+		var old_parent = self.get_parent() 
+		var new_parent = get_tree().current_scene.get_node("Fruits")
+		
+		old_parent.remove_child(self)
+		new_parent.add_child(self)
+		
+>>>>>>> origin/main
 		global_position = current_position
 		
 		# move it down
 		freeze = false
 		was_dropped = true
+<<<<<<< HEAD
 		emit_signal("dropped")	
 
 	
@@ -50,6 +106,36 @@ func _on_body_entered(body: RigidBody2D) -> void:
 
 		# if they're watermelons
 		if (fruit_type == 13):
+=======
+		emit_signal("dropped")
+	
+	if (was_dropped):
+		for body in get_colliding_bodies():
+			_handle_collisions(body)
+
+
+func _handle_collisions(body: Node) -> void:
+	# ignore everything that isn't a rigidbody2d
+	if not (body is RigidBody2D):
+		return
+	
+	# only one object can handle the "evoludion" of fruits
+	if get_instance_id() > body.get_instance_id():
+		return
+	
+	if (was_dropped and body.collision_layer == fruit_type):
+		set_deferred("contact_monitor", false)
+		body.set_deferred("contact_monitor", false)
+		
+		# if they're watermelons
+		if (fruit_type == 4096):
+			# add score
+			GameManager.add_points(1000)
+			
+			# delete current fruits
+			body.queue_free()
+			queue_free()
+>>>>>>> origin/main
 			return
 		
 		# get the new fruit's position
@@ -61,8 +147,50 @@ func _on_body_entered(body: RigidBody2D) -> void:
 		# create the new fruit
 		var fruit_instance = next_fruit.instantiate()
 		fruit_instance.global_position = fruit_position
+<<<<<<< HEAD
 		get_tree().current_scene.add_child(fruit_instance)
 		
 		# delete current fruits
 		body.queue_free()
 		queue_free()
+=======
+		get_tree().current_scene.get_node("Fruits").call_deferred("add_child", fruit_instance)
+		
+		# update the score with a giant if statement because i hate myself
+		if (fruit_type == 4):
+			GameManager.add_points(1)
+		else: if (fruit_type == 8):
+			GameManager.add_points(3)
+		else: if (fruit_type == 16):
+			GameManager.add_points(6)
+		else: if (fruit_type == 32):
+			GameManager.add_points(10)
+		else: if (fruit_type == 64):
+			GameManager.add_points(15)
+		else: if (fruit_type == 128):
+			GameManager.add_points(21)
+		else: if (fruit_type == 256):
+			GameManager.add_points(28)
+		else: if (fruit_type == 512):
+			GameManager.add_points(36)
+		else: if (fruit_type == 1024):
+			GameManager.add_points(45)
+		else: if (fruit_type == 2048):
+			GameManager.add_points(55)
+		
+		# delete current fruits
+		call_deferred("queue_free")
+		body.call_deferred("queue_free")
+
+
+func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+	if not (event is InputEventMouseButton):
+		return
+		
+	if (event is InputEventMouseButton):
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+			if (was_dropped and GameManager.moveMode):
+				is_dragging = true
+				freeze = true
+				drag_offset = global_position - get_global_mouse_position()
+>>>>>>> origin/main

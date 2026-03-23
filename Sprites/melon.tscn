@@ -1,6 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://coo8r7jp124mu"]
 
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://d2t8ac5y7jfra" path="res://Art/melon.png" id="1_f5kqy"]
+=======
+[ext_resource type="Texture2D" uid="uid://dhclajeqm74s8" path="res://Art/melon.png" id="1_f5kqy"]
+>>>>>>> origin/main
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_ykq50"]
 [ext_resource type="PackedScene" uid="uid://bmi282rs4ccpx" path="res://Sprites/watermelon.tscn" id="2_sicxq"]
 
@@ -17,7 +21,13 @@ script = ExtResource("1_ykq50")
 next_fruit = ExtResource("2_sicxq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+<<<<<<< HEAD
 scale = Vector2(1.6400001, 1.6400001)
+=======
+position = Vector2(36.49575, -37.00081)
+rotation = 0.8412487
+scale = Vector2(0.69, 0.69)
+>>>>>>> origin/main
 texture = ExtResource("1_f5kqy")
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
@@ -26,3 +36,7 @@ scale = Vector2(1.64, 1.64)
 shape = SubResource("CircleShape2D_f5kqy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+<<<<<<< HEAD
+=======
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+>>>>>>> origin/main

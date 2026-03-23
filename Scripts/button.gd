@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:Scenes/game_manager.gd
 # NOT SURE IF SCRIPT IS NEEDED RIGHT NOW
+========
+extends Button
+>>>>>>>> origin/main:Scripts/button.gd
 
 extends Node2D
 
@@ -8,13 +12,17 @@ var playing : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pressed.connect(start_reset)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
+<<<<<<<< HEAD:Scenes/game_manager.gd
 func add_points(points: int):
 	score += points
+========
+func start_reset():
+	GameManager.reset_game()
+>>>>>>>> origin/main:Scripts/button.gd

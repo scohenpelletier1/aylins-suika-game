@@ -21,6 +21,7 @@ func _ready() -> void:
 	# first fruits generated
 	current_fruit = 0
 	next_fruit = fruit_choice.randi_range(0, 4)
+<<<<<<< HEAD
 	
 	# start spawining fruits
 	spawn_fruits()
@@ -28,13 +29,33 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+=======
+	GameManager.update_next(next_fruit)
+	
+	# start spawining fruits
+	spawn_fruits()
+	
+	# have reset player ready
+	reset_player()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+>>>>>>> origin/main
 	pass
 
 
 func _physics_process(delta: float) -> void:
+<<<<<<< HEAD
 	var target_x = get_global_mouse_position().x
 	velocity = Vector2((target_x - global_position.x) / delta, 0)
 	move_and_slide()
+=======
+	if (GameManager.dropMode):
+		var target_x = get_global_mouse_position().x
+		velocity = Vector2((target_x - global_position.x) / delta, 0)
+		move_and_slide()
+>>>>>>> origin/main
 
 
 func spawn_fruits():
@@ -44,7 +65,11 @@ func spawn_fruits():
 		# create the fruit
 		var fruit_instance = fruits[current_fruit].instantiate()
 		fruit_instance.position = Vector2(3, 60)
+<<<<<<< HEAD
 				
+=======
+		
+>>>>>>> origin/main
 		add_child(fruit_instance)
 		
 		# wait 1 seconds for next fruit after it's dropped
@@ -55,3 +80,25 @@ func spawn_fruits():
 		# get the new fruits
 		current_fruit = next_fruit
 		next_fruit = fruit_choice.randi_range(0, 4)
+<<<<<<< HEAD
+=======
+		
+		# update the UI
+		GameManager.update_next(next_fruit)
+
+
+func reset_player():
+	await GameManager.reset
+		
+	# first fruits generated
+	current_fruit = 0
+	next_fruit = fruit_choice.randi_range(0, 4)
+	GameManager.update_next(next_fruit)
+		
+	# start spawining fruits
+	spawn_fruits()
+	
+	# set up reset player again
+	reset_player()
+	
+>>>>>>> origin/main
