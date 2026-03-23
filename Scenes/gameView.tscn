@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
 [ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
 [ext_resource type="Texture2D" uid="uid://1ktvefn8sxex" path="res://Art/leaderboard.png" id="4_fhiiq"]
-[ext_resource type="PackedScene" uid="uid://df1ex3g2c05fp" path="res://Scenes/game_manager.tscn" id="5_0obh8"]
+[ext_resource type="PackedScene" uid="uid://2hmyygp4tacp" path="res://Scenes/game_manager.tscn" id="5_0obh8"]
 [ext_resource type="Script" uid="uid://boh2f3suawiqg" path="res://Scripts/lose_trigger.gd" id="5_uroep"]
 [ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="6_tgp8f"]
 [ext_resource type="FontFile" uid="uid://b066gsqubkohl" path="res://Dosis-Bold.ttf" id="7_6u6mn"]
@@ -389,9 +389,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard1" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 266.0
 offset_top = 589.0
-offset_right = 481.0
+offset_right = 543.0
 offset_bottom = 628.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -400,9 +400,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard2" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 265.0
 offset_top = 657.0
-offset_right = 481.0
+offset_right = 541.0
 offset_bottom = 696.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -411,9 +411,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard3" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 265.0
 offset_top = 726.0
-offset_right = 481.0
+offset_right = 541.0
 offset_bottom = 765.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -422,9 +422,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard4" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 266.0
 offset_top = 794.0
-offset_right = 481.0
+offset_right = 540.0
 offset_bottom = 833.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -433,9 +433,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard5" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 265.0
 offset_top = 863.0
-offset_right = 481.0
+offset_right = 541.0
 offset_bottom = 902.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -465,5 +465,5 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fhiiq")
 theme_override_styles/read_only = SubResource("StyleBoxEmpty_uxjwr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v6s58")
-max_length = 15
+max_length = 12
 expand_to_text_length = true
