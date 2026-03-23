@@ -15,10 +15,7 @@ config/description="My friend Aylin asked me to make a version of Suika Game tha
 config/version="1.0.1"
 run/main_scene="uid://cwlsx73hq7bv5"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
-config/icon="uid://ivpdhy4cg4m7"
-config/macos_native_icon="uid://ivpdhy4cg4m7"
+config/icon="res://Godot Junk/icon.svg"
 
 [autoload]
 
