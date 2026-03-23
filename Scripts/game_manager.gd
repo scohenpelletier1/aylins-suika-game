@@ -53,7 +53,6 @@ func _ready() -> void:
 	
 	name_input = canvas.get_child(12)
 	_load_saved_name()
-	
 	_load_leaderboard_from_server()
 	
 	# ignore the box
@@ -137,9 +136,17 @@ func reset_game():
 	
 	# delete all current fruits
 	var children = get_tree().current_scene.get_node("Fruits").get_children()
+	var player_child = get_tree().current_scene.get_node("Player").get_child(2)
 	
 	for child in children:
 		child.queue_free()
+	
+	# reset modes
+	moveMode = false
+	dropMode = true
+	
+	# del
+	player_child.get_parent().remove_child(player_child)
 
 
 func _input(event):
@@ -159,6 +166,7 @@ func _input(event):
 			get_tree().current_scene.get_node("CanvasLayer").get_child(5).text = "Move Mode Active"
 
 
+# prob could've used cookies for this lol
 func _save_best_score(value: int) -> void:
 	# check if player is on website
 	if (OS.has_feature("web")):
@@ -190,6 +198,7 @@ func _load_best_score() -> int:
 		return 0
 
 
+# scary firebase stuff below, stop scrolling past this for sanity
 func _load_leaderboard_from_server() -> void:
 	if not OS.has_feature("web"):
 		return

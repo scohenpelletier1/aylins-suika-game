@@ -36,17 +36,26 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	# start dragging
 	if (is_dragging):
-		global_position = get_global_mouse_position() + drag_offset
+		# stop the fruits from going outside boundries
+		var new_pos = get_global_mouse_position() + drag_offset
+		new_pos.x = clamp(new_pos.x, 660, 1300)
+		new_pos.y = clamp(new_pos.y, 0, 900)
+		global_position = new_pos
 	
 	# end dragging
 	if ((not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and (is_dragging)):
 		is_dragging = false
 		freeze = false
-		#linear_velocity = Vector2.ZERO
-		# Restore collisions
+
+		# restore collisions
 		return
 	
 	if (not was_dropped and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and GameManager.dropMode):
+		# make sure it's not in the name area
+		if ((get_global_mouse_position().x < 565 and get_global_mouse_position().x > 204)
+		and (get_global_mouse_position().y < 558 and get_global_mouse_position().y > 496)):
+			return
+		
 		# make the fruit a child of game view instead of player behavior
 		var current_position = Vector2(global_position.x, global_position.y)
 		top_level = true
@@ -78,7 +87,7 @@ func _handle_collisions(body: Node) -> void:
 	if get_instance_id() > body.get_instance_id():
 		return
 	
-	if (was_dropped and body.collision_layer == fruit_type):
+	if (was_dropped and body.collision_layer == fruit_type and body.was_dropped):
 		set_deferred("contact_monitor", false)
 		body.set_deferred("contact_monitor", false)
 		
