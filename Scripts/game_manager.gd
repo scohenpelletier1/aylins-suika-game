@@ -55,6 +55,9 @@ func _ready() -> void:
 	_load_saved_name()
 	_load_leaderboard_from_server()
 	
+	# get game over screen
+	game_over = get_tree().current_scene.get_node("CanvasLayer").get_child(3)
+	
 	# ignore the box
 	var box = get_tree().current_scene.get_node("Box")
 	
@@ -100,12 +103,16 @@ func update_next(fruit_type: int):
 func _game_over():
 	playing = false
 	lost = true
+	
+	# lock conditions
+	moveMode = false
+	dropMode = false	
 		
 	# check to see if the current score is the new best score
 	if (score > int(best_score.text)):
 		best_score.text = current_score.text
 		_save_best_score(score)
-			
+	
 	game_over.visible = true
 	
 	# update scores
@@ -126,6 +133,7 @@ func _game_over():
 func reset_game():
 	# ui + game states
 	game_over.visible = false
+	get_tree().current_scene.get_node("CanvasLayer").get_child(5).text = "Drop Mode Active"
 	lost = false
 	playing = true
 	

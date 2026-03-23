@@ -49,7 +49,6 @@ func spawn_fruits():
 		# create the fruit
 		var fruit_instance = fruits[current_fruit].instantiate()
 		fruit_instance.position = Vector2(3, 60)
-		
 		add_child(fruit_instance)
 		
 		# wait 1 seconds for next fruit after it's dropped
@@ -72,10 +71,9 @@ func reset_player():
 	current_fruit = 0
 	next_fruit = fruit_choice.randi_range(0, 4)
 	GameManager.update_next(next_fruit)
-		
-	# remove children, start spawining fruits
+	
+	# start spawining fruits
 	spawn_fruits()
 	
 	# set up reset player again
 	reset_player()
-	

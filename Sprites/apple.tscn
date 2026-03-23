@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch6gbwxrjavok"]
+[gd_scene load_steps=5 format=3 uid="uid://suls2v4mluue"]
 
-[ext_resource type="Texture2D" uid="uid://bw6iqjc3d45l7" path="res://Art/apple.png" id="1_d00b6"]
+[ext_resource type="Texture2D" uid="uid://bw6iqjc3d45l7" path="res://Art/apple.png" id="1_3ed3y"]
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_lr1ho"]
-[ext_resource type="PackedScene" uid="uid://b8i58q2hodwcf" path="res://Sprites/pear.tscn" id="2_8e503"]
+[ext_resource type="PackedScene" uid="uid://b37ypv2n76iax" path="res://Sprites/pear.tscn" id="2_8e503"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d00b6"]
-radius = 139.41873
+radius = 79.22752
 
 [node name="Apple" type="RigidBody2D"]
-rotation = -0.9721484
 collision_layer = 128
 collision_mask = 8190
 contact_monitor = true
@@ -17,12 +16,12 @@ script = ExtResource("1_lr1ho")
 next_fruit = ExtResource("2_8e503")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.54, 0.54)
-texture = ExtResource("1_d00b6")
+rotation = -0.87266463
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("1_3ed3y")
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.7358384, -2.856012)
-scale = Vector2(0.54, 0.54)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -9)
 shape = SubResource("CircleShape2D_d00b6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
