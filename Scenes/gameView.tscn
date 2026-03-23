@@ -390,9 +390,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard1" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 266.0
 offset_top = 589.0
-offset_right = 481.0
+offset_right = 541.0
 offset_bottom = 628.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -401,9 +401,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard2" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 266.0
 offset_top = 657.0
-offset_right = 481.0
+offset_right = 541.0
 offset_bottom = 696.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -412,9 +412,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard3" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 266.0
 offset_top = 726.0
-offset_right = 481.0
+offset_right = 541.0
 offset_bottom = 765.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -423,9 +423,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard4" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 266.0
 offset_top = 794.0
-offset_right = 481.0
+offset_right = 540.0
 offset_bottom = 833.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
@@ -434,9 +434,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Leaderboard5" type="Label" parent="CanvasLayer"]
-offset_left = 301.0
+offset_left = 266.0
 offset_top = 863.0
-offset_right = 481.0
+offset_right = 541.0
 offset_bottom = 902.0
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30

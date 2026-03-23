@@ -141,16 +141,15 @@ func reset_game():
 	for child in children:
 		child.queue_free()
 	
+	player_child.get_parent().remove_child(player_child)
+	
 	# reset modes
 	moveMode = false
 	dropMode = true
-	
-	# del
-	player_child.get_parent().remove_child(player_child)
 
 
 func _input(event):
-	if (event is InputEventKey):
+	if (event is InputEventKey and playing):
 		if (event.keycode == KEY_D):
 			dropMode = true
 			moveMode = false

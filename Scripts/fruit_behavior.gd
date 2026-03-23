@@ -145,7 +145,7 @@ func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) ->
 		
 	if (event is InputEventMouseButton):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			if (was_dropped and GameManager.moveMode):
+			if (was_dropped and GameManager.moveMode and GameManager.playing):
 				is_dragging = true
 				freeze = true
 				drag_offset = global_position - get_global_mouse_position()
