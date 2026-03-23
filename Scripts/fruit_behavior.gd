@@ -16,16 +16,18 @@ var drag_offset : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	input_pickable = true
-	
+
 	if (get_parent().name == "Player"):
 		# freeze when first spawned
 		freeze = true
 	else:
+		# if not spawned by player, then it's been "dropped"
 		was_dropped = true
 	
 	# get fruit type and enable collisions
 	fruit_type = collision_layer
 	contact_monitor = true
+	max_contacts_reported = 8
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,34 +38,43 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	# start dragging
 	if (is_dragging):
-		global_position = get_global_mouse_position() + drag_offset
+		# stop the fruits from going outside boundries
+		var new_pos = get_global_mouse_position() + drag_offset
+		new_pos.x = clamp(new_pos.x, 660, 1300)
+		new_pos.y = clamp(new_pos.y, 0, 900)
+		global_position = new_pos
 	
 	# end dragging
 	if ((not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and (is_dragging)):
 		is_dragging = false
 		freeze = false
-		#linear_velocity = Vector2.ZERO
+
 		# Restore collisions
 		return
 	
 	if (not was_dropped and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and GameManager.dropMode):
+		# make sure it's not in the name area
+		if ((get_global_mouse_position().x < 565 and get_global_mouse_position().x > 204)
+		and (get_global_mouse_position().y < 558 and get_global_mouse_position().y > 496)):
+			return
+		
 		# make the fruit a child of game view instead of player behavior
 		var current_position = Vector2(global_position.x, global_position.y)
 		top_level = true
-		
+
 		var old_parent = self.get_parent() 
 		var new_parent = get_tree().current_scene.get_node("Fruits")
-		
+
 		old_parent.remove_child(self)
 		new_parent.add_child(self)
-		
+
 		global_position = current_position
-		
+
 		# move it down
 		freeze = false
 		was_dropped = true
 		emit_signal("dropped")
-	
+
 	if (was_dropped):
 		for body in get_colliding_bodies():
 			_handle_collisions(body)
@@ -78,31 +89,34 @@ func _handle_collisions(body: Node) -> void:
 	if get_instance_id() > body.get_instance_id():
 		return
 	
-	if (was_dropped and body.collision_layer == fruit_type):
+	if (was_dropped and body.collision_layer == fruit_type and body.was_dropped):
 		set_deferred("contact_monitor", false)
 		body.set_deferred("contact_monitor", false)
 		
+		set_deferred("contact_monitor", false)
+		body.set_deferred("contact_monitor", false)
+
 		# if they're watermelons
 		if (fruit_type == 4096):
 			# add score
 			GameManager.add_points(1000)
-			
+
 			# delete current fruits
 			body.queue_free()
 			queue_free()
 			return
-		
+
 		# get the new fruit's position
 		var fruit_position_x = (global_position.x + body.global_position.x)/2
 		var fruit_position_y = (global_position.y + body.global_position.y)/2
-		
+
 		var fruit_position = Vector2(fruit_position_x, fruit_position_y)
-				
+
 		# create the new fruit
 		var fruit_instance = next_fruit.instantiate()
 		fruit_instance.global_position = fruit_position
 		get_tree().current_scene.get_node("Fruits").call_deferred("add_child", fruit_instance)
-		
+
 		# update the score with a giant if statement because i hate myself
 		if (fruit_type == 4):
 			GameManager.add_points(1)
@@ -124,7 +138,7 @@ func _handle_collisions(body: Node) -> void:
 			GameManager.add_points(45)
 		else: if (fruit_type == 2048):
 			GameManager.add_points(55)
-		
+
 		# delete current fruits
 		call_deferred("queue_free")
 		body.call_deferred("queue_free")
@@ -133,7 +147,7 @@ func _handle_collisions(body: Node) -> void:
 func _on_input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if not (event is InputEventMouseButton):
 		return
-		
+
 	if (event is InputEventMouseButton):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 			if (was_dropped and GameManager.moveMode):
