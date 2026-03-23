@@ -73,7 +73,7 @@ func reset_player():
 	next_fruit = fruit_choice.randi_range(0, 4)
 	GameManager.update_next(next_fruit)
 		
-	# start spawining fruits
+	# remove children, start spawining fruits
 	spawn_fruits()
 	
 	# set up reset player again
