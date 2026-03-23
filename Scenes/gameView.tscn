@@ -166,7 +166,6 @@ offset_top = 208.47148
 offset_right = 1317.0
 offset_bottom = 226.47148
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
-metadata/_edit_lock_ = true
 
 [node name="Side3" type="ColorRect" parent="Box"]
 offset_left = 1275.8939
