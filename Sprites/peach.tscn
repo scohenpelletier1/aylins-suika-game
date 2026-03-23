@@ -1,8 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7ejj3bifiksj"]
 
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_l7k78"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://ce5pagyjge5oc" path="res://Sprites/pineapple.tscn" id="2_ph6u3"]
 [ext_resource type="Texture2D" uid="uid://byldabj447gem" path="res://Art/peach.png" id="3_ph6u3"]
+=======
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://crdhhq23u1qev" path="res://Art/peach.png" id="1_xedpg"]
+[ext_resource type="PackedScene" uid="uid://ce5pagyjge5oc" path="res://Sprites/pineapple.tscn" id="2_ph6u3"]
+=======
+[ext_resource type="PackedScene" uid="uid://ce5pagyjge5oc" path="res://Sprites/pineapple.tscn" id="2_ph6u3"]
+[ext_resource type="Texture2D" uid="uid://byldabj447gem" path="res://Art/peach.png" id="3_ph6u3"]
+>>>>>>> origin/main
+>>>>>>> origin/Fruit-Behavior
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xedpg"]
 radius = 51.007988
@@ -16,10 +26,22 @@ script = ExtResource("1_l7k78")
 next_fruit = ExtResource("2_ph6u3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+position = Vector2(0.47619054, 0)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("1_xedpg")
+=======
+>>>>>>> origin/Fruit-Behavior
 position = Vector2(-5.000001, -14)
 rotation = 0.25830874
 scale = Vector2(0.67, 0.67)
 texture = ExtResource("3_ph6u3")
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
+>>>>>>> origin/Fruit-Behavior
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
 position = Vector2(9, 7.9999995)
@@ -27,4 +49,11 @@ scale = Vector2(2.1, 2.1)
 shape = SubResource("CircleShape2D_xedpg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+<<<<<<< HEAD
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+=======
+<<<<<<< HEAD
+=======
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+>>>>>>> origin/main
+>>>>>>> origin/Fruit-Behavior

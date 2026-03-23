@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 [gd_scene load_steps=21 format=3 uid="uid://cwlsx73hq7bv5"]
 
 [ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
 [ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
 [ext_resource type="Texture2D" uid="uid://1ktvefn8sxex" path="res://Art/leaderboard.png" id="4_fhiiq"]
+=======
+[gd_scene load_steps=17 format=3 uid="uid://cwlsx73hq7bv5"]
+
+[ext_resource type="Texture2D" uid="uid://b8dblm7jg6r66" path="res://Art/FruitEvolution.png" id="1_5gsrv"]
+[ext_resource type="PackedScene" uid="uid://ctwqc881eugyh" path="res://Sprites/player.tscn" id="1_nfojt"]
+>>>>>>> origin/Fruit-Behavior
 [ext_resource type="PackedScene" uid="uid://df1ex3g2c05fp" path="res://Scenes/game_manager.tscn" id="5_0obh8"]
 [ext_resource type="Script" uid="uid://boh2f3suawiqg" path="res://Scripts/lose_trigger.gd" id="5_uroep"]
 [ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="6_tgp8f"]
@@ -26,6 +33,7 @@ size = Vector2(1924, 527.02856)
 size = Vector2(576, 379)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u6mn"]
+<<<<<<< HEAD
 size = Vector2(694, 91.5)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhiiq"]
@@ -33,6 +41,9 @@ size = Vector2(694, 91.5)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uxjwr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6s58"]
+=======
+size = Vector2(694, 19)
+>>>>>>> origin/Fruit-Behavior
 
 [node name="GameView" type="Node2D"]
 
@@ -64,6 +75,7 @@ scale = Vector2(0.6440678, 0.64406776)
 texture = ExtResource("1_5gsrv")
 metadata/_edit_lock_ = true
 
+<<<<<<< HEAD
 [node name="Leaderboard" type="Sprite2D" parent="Background Elements"]
 position = Vector2(384, 671)
 scale = Vector2(0.67413795, 0.67413795)
@@ -81,6 +93,10 @@ metadata/_edit_lock_ = true
 [node name="Box" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
+=======
+[node name="Box" type="Node2D" parent="."]
+
+>>>>>>> origin/Fruit-Behavior
 [node name="Interior7" type="ColorRect" parent="Box"]
 offset_left = 1244.8396
 offset_top = 178.76053
@@ -142,10 +158,17 @@ color = Color(0.8980392, 0.8509804, 0.62352943, 1)
 metadata/_edit_lock_ = true
 
 [node name="Interior1" type="ColorRect" parent="Box"]
+<<<<<<< HEAD
 offset_left = 693.0
 offset_top = 847.0
 offset_right = 1266.0
 offset_bottom = 906.4715
+=======
+offset_left = 694.0
+offset_top = 849.0
+offset_right = 1265.0
+offset_bottom = 908.0
+>>>>>>> origin/Fruit-Behavior
 color = Color(0.8980392, 0.8509804, 0.62352943, 1)
 metadata/_edit_lock_ = true
 
@@ -162,11 +185,16 @@ metadata/_edit_lock_ = true
 [node name="Side2" type="ColorRect" parent="Box"]
 z_index = 100
 offset_left = 642.0
+<<<<<<< HEAD
 offset_top = 208.47148
 offset_right = 1317.0
 offset_bottom = 226.47148
+=======
+offset_top = 210.0
+offset_right = 1317.0
+offset_bottom = 228.0
+>>>>>>> origin/Fruit-Behavior
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
-metadata/_edit_lock_ = true
 
 [node name="Side3" type="ColorRect" parent="Box"]
 offset_left = 1275.8939
@@ -187,7 +215,11 @@ color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
 [node name="Wall1" type="StaticBody2D" parent="Box"]
+<<<<<<< HEAD
 position = Vector2(1308, 222.47148)
+=======
+position = Vector2(1308, 224)
+>>>>>>> origin/Fruit-Behavior
 collision_layer = 2
 collision_mask = 8189
 metadata/_edit_lock_ = true
@@ -199,11 +231,19 @@ color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Wall1"]
+<<<<<<< HEAD
 position = Vector2(307.5, 430.26422)
 shape = SubResource("RectangleShape2D_tgp8f")
 
 [node name="Wall2" type="StaticBody2D" parent="Box"]
 position = Vector2(632, 222.47148)
+=======
+position = Vector2(9, 342.5)
+shape = SubResource("RectangleShape2D_tgp8f")
+
+[node name="Wall2" type="StaticBody2D" parent="Box"]
+position = Vector2(632, 224)
+>>>>>>> origin/Fruit-Behavior
 collision_layer = 2
 collision_mask = 8189
 metadata/_edit_lock_ = true
@@ -215,15 +255,30 @@ color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Wall2"]
+<<<<<<< HEAD
 position = Vector2(-306, 429.5285)
 shape = SubResource("RectangleShape2D_npxfu")
 
 [node name="Floor" type="StaticBody2D" parent="Box"]
 position = Vector2(960, 919.4715)
+=======
+position = Vector2(9, 344.5)
+shape = SubResource("RectangleShape2D_npxfu")
+
+[node name="Floor" type="StaticBody2D" parent="Box"]
+position = Vector2(960, 921)
+>>>>>>> origin/Fruit-Behavior
 collision_layer = 2
 collision_mask = 8191
 metadata/_edit_lock_ = true
 
+<<<<<<< HEAD
+=======
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Floor"]
+position = Vector2(20, -1.5)
+shape = SubResource("RectangleShape2D_0obh8")
+
+>>>>>>> origin/Fruit-Behavior
 [node name="ColorRect" type="ColorRect" parent="Box/Floor"]
 offset_left = -328.0
 offset_top = -14.0
@@ -231,10 +286,13 @@ offset_right = 366.0
 offset_bottom = 11.0
 color = Color(0.9411765, 0.84705883, 0.54901963, 1)
 
+<<<<<<< HEAD
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Floor"]
 position = Vector2(6, 250.01422)
 shape = SubResource("RectangleShape2D_0obh8")
 
+=======
+>>>>>>> origin/Fruit-Behavior
 [node name="Fruits" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_nfojt")]
@@ -254,7 +312,10 @@ metadata/_edit_lock_ = true
 [node name="PlayerWall1" type="CollisionShape2D" parent="Walls"]
 position = Vector2(-306, -39.5)
 shape = SubResource("RectangleShape2D_p0u6d")
+<<<<<<< HEAD
 metadata/_edit_lock_ = true
+=======
+>>>>>>> origin/Fruit-Behavior
 
 [node name="LoseGame" type="Area2D" parent="."]
 position = Vector2(621, 229)
@@ -263,7 +324,11 @@ collision_mask = 8188
 script = ExtResource("5_uroep")
 
 [node name="CollisionNode2D" type="CollisionShape2D" parent="LoseGame"]
+<<<<<<< HEAD
 position = Vector2(358, -181.25)
+=======
+position = Vector2(358, -145)
+>>>>>>> origin/Fruit-Behavior
 shape = SubResource("RectangleShape2D_6u6mn")
 
 [node name="GameManager" parent="." instance=ExtResource("5_0obh8")]
@@ -333,6 +398,10 @@ theme_override_colors/font_color = Color(0.9254902, 0.88235295, 0.70980394, 1)
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 40
 text = "46567"
+<<<<<<< HEAD
+=======
+horizontal_alignment = 1
+>>>>>>> origin/Fruit-Behavior
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/GameOverScreen"]
@@ -370,7 +439,11 @@ theme_override_colors/font_outline_color = Color(0.5254902, 0.3882353, 0.1960784
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("7_6u6mn")
 theme_override_font_sizes/font_size = 30
+<<<<<<< HEAD
 text = "Press M to activate move mode
+=======
+text = "Press M to activate move movde
+>>>>>>> origin/Fruit-Behavior
 Press D to activate drop mode"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -388,6 +461,7 @@ theme_override_font_sizes/font_size = 30
 text = "Drop Mode Active"
 horizontal_alignment = 1
 vertical_alignment = 1
+<<<<<<< HEAD
 
 [node name="Leaderboard1" type="Label" parent="CanvasLayer"]
 offset_left = 266.0
@@ -468,3 +542,5 @@ theme_override_styles/read_only = SubResource("StyleBoxEmpty_uxjwr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_v6s58")
 max_length = 15
 expand_to_text_length = true
+=======
+>>>>>>> origin/Fruit-Behavior

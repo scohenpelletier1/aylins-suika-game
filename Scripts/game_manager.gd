@@ -1,8 +1,11 @@
 extends Node2D
 
+<<<<<<< HEAD
 # firebase database url
 const FIREBASE_DB_URL = "https://aylins-suika-game-default-rtdb.firebaseio.com/"
 
+=======
+>>>>>>> origin/Fruit-Behavior
 # manager variables
 var score : int = 0
 var fruit_dropped : bool = false
@@ -15,9 +18,12 @@ var moveMode : bool = false
 var current_score : Label
 var best_score : Label
 var game_over : Node2D
+<<<<<<< HEAD
 var leaderboard_labels : Array = []
 var name_input : LineEdit
 var player_id : String = ""
+=======
+>>>>>>> origin/Fruit-Behavior
 
 # signals
 signal reset
@@ -38,6 +44,7 @@ func _ready() -> void:
 
 	current_score.text = "0"
 	
+<<<<<<< HEAD
 	# set up player identity and load saved data
 	_ensure_player_id()
 	var saved_best = _load_best_score()
@@ -55,6 +62,11 @@ func _ready() -> void:
 	_load_saved_name()
 	_load_leaderboard_from_server()
 	
+=======
+	# get game over screen
+	game_over = get_tree().current_scene.get_node("CanvasLayer").get_child(3)
+	
+>>>>>>> origin/Fruit-Behavior
 	# ignore the box
 	var box = get_tree().current_scene.get_node("Box")
 	
@@ -104,13 +116,17 @@ func _game_over():
 	# check to see if the current score is the new best score
 	if (score > int(best_score.text)):
 		best_score.text = current_score.text
+<<<<<<< HEAD
 		_save_best_score(score)
+=======
+>>>>>>> origin/Fruit-Behavior
 			
 	game_over.visible = true
 	
 	# update scores
 	game_over.get_child(1).text = current_score.text
 	game_over.get_child(2).text = best_score.text
+<<<<<<< HEAD
 	
 	# submit to leaderboard
 	var player_name = name_input.text.strip_edges()
@@ -121,6 +137,8 @@ func _game_over():
 	
 	_save_player_name(player_name)
 	_submit_score(player_name, int(best_score.text))
+=======
+>>>>>>> origin/Fruit-Behavior
 
 
 func reset_game():
@@ -136,6 +154,7 @@ func reset_game():
 	
 	# delete all current fruits
 	var children = get_tree().current_scene.get_node("Fruits").get_children()
+<<<<<<< HEAD
 	var player_child = get_tree().current_scene.get_node("Player").get_child(2)
 	
 	for child in children:
@@ -150,6 +169,15 @@ func reset_game():
 
 func _input(event):
 	if (event is InputEventKey and playing):
+=======
+	
+	for child in children:
+		child.queue_free()
+
+
+func _input(event):
+	if (event is InputEventKey):
+>>>>>>> origin/Fruit-Behavior
 		if (event.keycode == KEY_D):
 			dropMode = true
 			moveMode = false
@@ -163,6 +191,7 @@ func _input(event):
 			
 			# update ui
 			get_tree().current_scene.get_node("CanvasLayer").get_child(5).text = "Move Mode Active"
+<<<<<<< HEAD
 
 
 # prob could've used cookies for this lol
@@ -282,3 +311,5 @@ func _save_player_name(player_name: String) -> void:
 	if OS.has_feature("web"):
 		var safe = player_name.replace("\\", "\\\\").replace("'", "\\'")
 		JavaScriptBridge.eval("localStorage.setItem('player_name', '%s');" % safe)
+=======
+>>>>>>> origin/Fruit-Behavior

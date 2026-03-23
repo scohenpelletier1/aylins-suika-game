@@ -1,6 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://4jy52n3xxtf6"]
 
+<<<<<<< HEAD
 [ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_52at3"]
+=======
+<<<<<<< HEAD
+[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_52at3"]
+=======
+[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_52at3"]
+>>>>>>> origin/main
+>>>>>>> origin/Fruit-Behavior
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_suuul"]
 [ext_resource type="Texture2D" uid="uid://egqpivx6gq6k" path="res://Art/dekopan.png" id="1_yk7dg"]
 [ext_resource type="PackedScene" uid="uid://csp37jb7j522b" path="res://Sprites/persimmon.tscn" id="3_vwvba"]
@@ -27,4 +35,11 @@ scale = Vector2(0.74, 0.74)
 shape = SubResource("CircleShape2D_52at3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+<<<<<<< HEAD
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+=======
+<<<<<<< HEAD
+=======
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+>>>>>>> origin/main
+>>>>>>> origin/Fruit-Behavior
