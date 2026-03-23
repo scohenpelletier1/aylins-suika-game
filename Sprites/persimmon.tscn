@@ -1,45 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://csp37jb7j522b"]
+[gd_scene load_steps=5 format=3 uid="uid://csp37jb7j522b"]
 
-<<<<<<< HEAD
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_3ih7y"]
-=======
-<<<<<<< HEAD
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_3ih7y"]
-=======
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_3ih7y"]
->>>>>>> origin/main
->>>>>>> origin/Fruit-Behavior
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_amg30"]
 [ext_resource type="Texture2D" uid="uid://dxw7dt7hbn1q1" path="res://Art/persimmon.png" id="1_vwww4"]
-[ext_resource type="PackedScene" uid="uid://ch6gbwxrjavok" path="res://Sprites/apple.tscn" id="3_bh7dv"]
+[ext_resource type="PackedScene" uid="uid://suls2v4mluue" path="res://Sprites/apple.tscn" id="2_3ih7y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3ih7y"]
-radius = 81.94445
+radius = 60.033325
 
 [node name="Persimmon" type="RigidBody2D"]
 collision_layer = 64
 collision_mask = 8190
-physics_material_override = ExtResource("1_3ih7y")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_amg30")
-next_fruit = ExtResource("3_bh7dv")
+next_fruit = ExtResource("2_3ih7y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.72, 0.72)
 texture = ExtResource("1_vwww4")
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.0000005, 7)
-scale = Vector2(0.72, 0.72)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 7)
 shape = SubResource("CircleShape2D_3ih7y")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-<<<<<<< HEAD
 [connection signal="input_event" from="." to="." method="_on_input_event"]
-=======
-<<<<<<< HEAD
-=======
-[connection signal="input_event" from="." to="." method="_on_input_event"]
->>>>>>> origin/main
->>>>>>> origin/Fruit-Behavior

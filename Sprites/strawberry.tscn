@@ -1,46 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf8jfk8s2d8k"]
+[gd_scene load_steps=5 format=3 uid="uid://1eahbnjqrubl"]
 
 [ext_resource type="Script" uid="uid://dtu1sk0o2ir4d" path="res://Scripts/fruit_behavior.gd" id="1_gu0xn"]
-<<<<<<< HEAD
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_h085a"]
-=======
-<<<<<<< HEAD
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://fruit_physics.tres" id="1_h085a"]
-=======
-[ext_resource type="PhysicsMaterial" uid="uid://d1xd1idv7448f" path="res://Godot Junk/fruit_physics.tres" id="1_h085a"]
->>>>>>> origin/main
->>>>>>> origin/Fruit-Behavior
-[ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="1_y1u1h"]
-[ext_resource type="PackedScene" uid="uid://cqreymv06nfc5" path="res://Sprites/grape.tscn" id="3_fbh2p"]
+[ext_resource type="Texture2D" uid="uid://cbvpfharoem5k" path="res://Art/strawberry.png" id="1_rprmc"]
+[ext_resource type="PackedScene" uid="uid://cqreymv06nfc5" path="res://Sprites/grape.tscn" id="2_h085a"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h085a"]
-radius = 38.571426
-height = 85.71429
+[sub_resource type="CircleShape2D" id="CircleShape2D_gu0xn"]
+radius = 28.01785
 
 [node name="Strawberry" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 8190
-physics_material_override = ExtResource("1_h085a")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_gu0xn")
-next_fruit = ExtResource("3_fbh2p")
+next_fruit = ExtResource("2_h085a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_y1u1h")
+texture = ExtResource("1_rprmc")
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.99999994, -0.99999905)
-scale = Vector2(0.7, 0.7)
-shape = SubResource("CapsuleShape2D_h085a")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_gu0xn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-<<<<<<< HEAD
 [connection signal="input_event" from="." to="." method="_on_input_event"]
-=======
-<<<<<<< HEAD
-=======
-[connection signal="input_event" from="." to="." method="_on_input_event"]
->>>>>>> origin/main
->>>>>>> origin/Fruit-Behavior

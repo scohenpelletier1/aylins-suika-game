@@ -1,4 +1,4 @@
-[gd_resource type="PhysicsMaterial" load_steps=0 format=3 uid="uid://cuj5l28t5ovvp"]
+[gd_resource type="PhysicsMaterial" format=3 uid="uid://cuj5l28t5ovvp"]
 
 [resource]
 absorbent = true
